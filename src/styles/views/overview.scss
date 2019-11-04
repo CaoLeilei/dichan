@@ -1,0 +1,804 @@
+@include b(overview) {
+  box-sizing: border-box;
+  padding-top: 44px;
+  padding-bottom: 100px;
+
+  @include e(header) {
+    position: fixed;
+    top: 48px;
+    width: 100%;
+    z-index: 999;
+    background: linear-gradient(to right bottom, $--color-link, $--color-heading);
+  }
+
+  @include e(header-inner) {
+    @include container();
+    height: 44px;
+    .title-box {
+      height: 44px;
+      line-height: 44px;
+    }
+
+    h2 {
+      display: inline-block;
+      color: $--color-white;
+      padding: 0;
+      margin: 0;
+      font-size: 24px;
+      line-height: 44px;
+      font-weight: normal;
+    }
+    .el-dropdown {
+      vertical-align: top;
+    }
+    .el-dropdown-link {
+      cursor: pointer;
+      outline: none;
+      line-height: 44px;
+    }
+  }
+  @include e(header-right) {
+    .sub-title-menu {
+      display: none;
+      list-style: none;
+      height: 60px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-top: 0;
+      .nav-item {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .nav-link {
+        color: $--color-white;
+        border-bottom: solid 2px transparent;
+        padding: 7px 0;
+        text-transform: uppercase;
+        &.active {
+          color: $--color-primary;
+          border-bottom-color: $--color-white;
+        }
+      }
+    }
+    .header-download {
+      padding-top: 0;
+      .nav-link {
+        padding: 7px 0 3px;
+        line-height: 25px;
+      }
+    }
+    .menu-icon-download {
+      position: relative;
+      display: inline-block;
+      width: 55px;
+      height: 25px;
+      background: url("../assets/images/header-download.png") no-repeat center;
+    }
+    .invite-box {
+      height: 44px;
+      line-height: 44px;
+      padding-left: 15px;
+    }
+    .invite-btn {
+      color: $--color-white;
+      background: $--color-primary;
+      height: 28px;
+      padding: 7px 20px;
+    }
+  }
+  @include e(header-dropdown) {
+    width: 300px;
+    .el-dropdown-menu__item {
+      &:hover {
+        background: transparent;
+      }
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    .header-dropdown-item {
+      display: inline-block;
+      line-height: 30px;
+      color: $--color-gray-3;
+      &:hover {
+        color: $--color-text
+      }
+    }
+  }
+
+  @include e(module) {
+    @include container();
+    padding: 0 75px;
+    @include when(paraghraph) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    & + .dc-overview__module {
+      //border-top: 1px solid #ddd;
+    }
+  }
+  @include e(moudle-header) {
+    text-align: center;
+    height: auto;
+    margin-bottom: 25px;
+    .module-desc {
+      display: block;
+      width: 100%;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+  @include e(module-inner){
+
+    .module-content-item {
+      position: relative;
+      width: 100%;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+    .module-image {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      .image-box {
+        display: inline-block;
+        vertical-align: middle;
+        width: auto;
+        max-width: 100%;
+      }
+      img {
+        width: auto;
+        max-width: 100%;
+      }
+    }
+    .paragraph-item {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .paragraph-title {
+      font-size: 16px;
+      color: $--color-link;
+      text-align: left;
+      line-height: 28px;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    .paragraph-text {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .prop-concent {
+      color: $--color-primary;
+      font-size: 16px;
+      @include utils-ellipsis;
+    }
+    .prop-content-inner + .prop-content-inner {
+      margin-top: 10px;
+    }
+
+    .prop-button {
+      font-size: 16px;
+      text-decoration: none;
+      padding-top: 0px;
+      padding-bottom: 0;
+    }
+    .pop-icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 25px;
+      height: 25px;
+      background: url("../assets/images/pop-icon.png") no-repeat center;
+      background-size: 100%;
+      margin-right: 0px;
+    }
+  }
+  @include e(title) {
+    position: relative;
+    font-size: 56px;
+    line-height: 1;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    color: $--color-text;
+    font-weight: bold;
+
+    span {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 25px;
+      &:after {
+        content: " ";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: $--color-primary;
+        display: block;
+      }
+    }
+  }
+  @include e(sub-title) {
+    font-size: 18px;
+    text-align: left;
+    color: $--color-text;
+    font-weight: bold;
+    margin-bottom: 35px;
+  }
+  @include e(top) {
+    position: relative;
+    width: 100%;
+    //min-height: 500px;
+    //max-height: 700px;
+    margin-bottom: 75px;
+  }
+
+  @include e(top-back) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: block;
+
+    .back-media {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      display: block;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include e(top-content) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  @include e(top-main) {
+    background: linear-gradient(-180deg,transparent 10%,rgba(0,0,0,.9));
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    right: 0;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    .main-inner {
+      position: relative;
+      height: 100%;
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      //padding-top: 10%;
+      //padding-bottom: 10%;
+    }
+    .main-content {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      max-width: 1230px;
+      align-items: center;
+      margin: 0 auto;
+      box-sizing: border-box;
+      padding-left: 15px;
+      padding-right: 15px;
+      color: $--color-white;
+    }
+    .top-main-title {
+      display: block;
+      font-size: 72px;
+      text-align: center;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .top-main-desc {
+      font-size: 24px;
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+    .main-ctr-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      overflow: hidden;
+      max-width: 600px;
+      padding-top: 5%;
+      font-size: 0;
+    }
+    .main-ctr-button {
+      width: 100%;
+      padding-top: 17px;
+      padding-bottom: 17px;
+      font-size: 16px;
+      & + .main-ctr-button {
+        margin-left: 40px;
+      }
+    }
+  }
+  @include e(top-footer) {
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,.9);
+    border-top: 1px solid hsla(0,0%,100%,.2);
+
+    .footer-inner {
+      position: relative;
+      display: block;
+      width: 100%;
+      max-width: 1230px;
+      margin: 0 auto;
+      z-index: 5;
+      padding: 2% 20px;
+      text-align: center;
+    }
+
+    .footer-item {
+      display: inline-block;
+      text-align: center;
+      margin: 5px 40px;
+      p {
+        color: $--color-white;
+        font-size: 28px;
+        margin: 0 0 8px;
+        font-weight: bold;
+        line-height: 1;
+      }
+      h4 {
+        color: $--color-gray-3;
+        margin: 0;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1;
+      }
+    }
+  }
+  @include e(invest-box) {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 99;
+    .el-button {
+      width: 100%;
+      border-radius: 0;
+      height: 50px;
+      font-size: 16px;
+    }
+  }
+
+  @include e(base-item) {
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+    margin-bottom: 30px;
+
+    @include when(phone) {
+      background: url("../assets/images/overview-base-icon-1.png") no-repeat top center;
+    }
+    @include when(email) {
+      background: url("../assets/images/overview-base-icon-2.png") no-repeat top center;
+    }
+    @include when(info) {
+      background: url("../assets/images/overview-base-icon-3.png") no-repeat top center;
+    }
+
+    h3 {
+      height: 30px;
+      line-height: 30px;
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: $--color-logo;
+    }
+    .item-content {
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: center;
+    }
+    p {
+      font-size: 18px;
+      line-height: 25px;
+      margin-bottom: 0;
+      color: $--color-text;
+    }
+  }
+
+  @include e(detail-content) {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 50px
+  }
+
+  @include e(panel) {
+    //min-height: 500px;
+    .chart-bottom {
+      margin-top: 20px;
+      height: 110px;
+      background: no-repeat;
+    }
+    .price-box {
+      width: 100%;
+      height: 50px;
+      background: $--color-gray-4;
+      padding: 1px;
+      box-sizing: border-box;
+      @include utils-clearfix;
+    }
+    .price-item {
+      float: left;
+      width: 10%;
+      height: 100%;
+      text-align: center;
+      line-height: 48px;
+      font-size: 14px;
+      overflow: hidden;
+      &.is-active {
+        background: $--color-white;
+      }
+    }
+  }
+
+  @include e(detail-chart) {
+    position: relative;
+    width: 100%;
+    padding-top: 40%;
+    .chart-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: red;
+    }
+  }
+
+  @include e(photo) {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .photo-box {
+      position: relative;
+      width: 100%;
+      padding-top: 78.5%;
+
+      &:before {
+        content: " ";
+        position: absolute;
+        display: block;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        background: RGBA(0, 0, 0, 0);
+        transition: background .2s;
+        z-index: 2;
+      }
+      &:hover {
+        &:before {
+          background: RGBA(0, 0, 0, .5);
+        }
+        .photo-name {
+          //display: block;
+        }
+      }
+    }
+    .photo-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      img {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .photo-name {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+    }
+    .photo-name-inner {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 16px;
+      color: $--color-white;
+      justify-content: center;
+      align-items: center;
+    }
+    .view-all-box {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .count-box {
+      color: $--color-gray-3;
+    }
+  }
+
+  @include e(download) {
+    box-sizing: border-box;
+    padding-left: 25px;
+    padding-right: 25px;
+    .download-item {
+      width: 100%;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+    .download-btn {
+      position: relative;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      padding-left: 40px;
+      padding-right: 10px;
+      width: 100%;
+      height: 50px;
+      line-height: 1;
+      overflow: hidden;
+      text-align: left;
+    }
+    .file-icon {
+      position: absolute;
+      left: 10px;
+      top: 11px;
+      display: block;
+      vertical-align: middle;
+      width: 20px;
+      height: 28px;
+      //background: url("../assets/images/download-file-icon.png") no-repeat center;
+    }
+    .file-name {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      line-height: 15px;
+      white-space: normal;
+      font-size: 13px;
+      &:hover {
+        text-decoration: none;
+      }
+      //@include utils-ellipsis;
+    }
+  }
+
+  @include e(dialog) {
+
+    padding-top: 55px;
+    .el-dialog__header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid $--color-border;
+    }
+    .el-dialog__body {
+      width: 100%;
+      height: 100%;
+    }
+    .dialog-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      overflow: auto;
+      @include when(image) {
+        align-items: center;
+      }
+      img {
+        max-width: 100%;
+      }
+      .content-text {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1200px;
+      }
+    }
+  }
+}
+
+// 小屏，手机
+@media screen and (max-width: 554px){
+  @include b(overview) {
+
+    @include e(header-right) {
+      .invite-box {
+        display: none;
+      }
+    }
+
+    @include e(invest-box) {
+      display: block;
+    }
+  }
+}
+@include res(xs) {
+  @include b(overview) {
+    padding-top: 44px;
+    @include e(title) {
+      font-size: 36px;
+    }
+    @include e(header) {
+      top: 48px;
+    }
+    @include e(module) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    @include e(header-inner) {
+      height: 44px;
+      .title-box {
+        height: 44px;
+      }
+      h2 {
+        line-height: 44px;
+        font-size: 20px;
+      }
+    }
+    @include e(top-main) {
+      padding-top: 35px;
+      padding-bottom: 35px;
+      .top-main-title {
+        font-size: 26px;
+        //padding-top: 20px;
+      }
+      .top-main-desc {
+        font-size: 16px;
+      }
+
+      .main-ctr-box {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        padding-top: 30px;
+      }
+      .main-ctr-button {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        & + .main-ctr-button {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+      }
+    }
+    @include e(top-footer) {
+      padding-bottom: 16px;
+      padding-top: 10px;
+      .footer-inner {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .footer-item {
+        p {
+          font-size: 18px;
+          line-height: 22px;
+        }
+        h4 {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+@include res(sm) {
+  @include b(overview) {
+    @include e(module) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    @include e(title ) {
+      font-size: 56px;
+    }
+    @include e(top-main) {
+      .top-main-title {
+        font-size: 52px;
+      }
+      .top-main-desc {
+        font-size: 20px;
+      }
+    }
+  }
+}
+@include res(md) {
+  @include b(overview) {
+    padding-top: 60px;
+
+    @include e(header-inner) {
+      .title-box {
+        height: 60px;
+        line-height: 60px;
+      }
+      h2 {
+        font-size: 24px;
+        vertical-align: middle;
+      }
+      .title-box-drop {
+        display: none;
+      }
+    }
+    @include e(header-right) {
+      .sub-title-menu {
+        display: flex;
+      }
+      .header-download {
+        padding-top: 8px;
+        .nav-link {
+          padding: 8px 10px;
+          line-height: 25px;
+        }
+      }
+      .invite-box {
+        height: 60px;
+        line-height: 60px;
+      }
+      .invite-btn {
+        height: 40px;
+        padding: 10px 20px;
+      }
+    }
+    @include e(top-main) {
+      .top-main-title {
+        font-size: 52px;
+      }
+      .top-main-desc {
+        font-size: 20px;
+      }
+    }
+    @include e(photo) {
+      .photo-box {
+        &:hover {
+          .photo-name {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+@include res(lg) {
+  @include b(overview) {
+    padding-top: 60px;
+    @include e(header) {
+      top: 70px;
+    }
+  }
+}

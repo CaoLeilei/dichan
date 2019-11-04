@@ -1,0 +1,85 @@
+
+html,
+body {
+  width: 100%;
+  background: $--color-body-background;
+  //font-family: "Europa Regular", "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Europa", "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  color: $--color-text;
+}
+
+a {
+  color: $--color-link;
+  text-decoration: none;
+  &:hover,
+  &:active {
+    color: $--color-link;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+img {
+  border: none;
+}
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+  outline: none;
+}
+
+.el-button {
+  font-weight: 400;
+}
+
+// 弹出确认框的样式
+//.el-message-box {
+//  width: 540px;
+//}
+.el-message-box--center {
+  padding-bottom: 0;
+
+  .el-message-box__header {
+    padding-top: 15px;
+    padding-bottom: 0;
+
+  }
+  .el-message-box__title {
+    color: $--color-heading;
+  }
+  .el-message-box__content {
+    border-bottom: 1px solid $--color-border;
+    padding: 20px;
+    font-size: 16px;
+  }
+  .el-message-box__btns {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    &.is-two-btn {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .el-button {
+    width: 135px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $--font-heading;
+}
+
+.heading-font {
+  font-family: $--font-heading !important;
+  font-weight: 200;
+}

@@ -1,0 +1,132 @@
+@include b(invite) {
+
+  @include e(top) {
+    position: relative;
+    background: linear-gradient(to right top, $--color-link, $--color-heading);
+  }
+
+  @include e(top-inner) {
+    @include container();
+    padding-top: 120px;
+    padding-bottom: 120px;
+    color: $--color-white;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @include e(top-title) {
+    font-size: 36px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 25px;
+  
+  }
+
+  @include e(top-text) {
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 65px;
+  }
+
+  @include e(input-box) {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: $--color-white;
+    border-radius: 2px;
+    padding: 15px 20px;
+
+    .input-group {
+      position: relative;
+      width: 100%;
+      margin-bottom: 0;
+      box-sizing: border-box;
+      padding-right: 80px;
+    }
+  }
+
+  @include e(input) {
+    border-right: none;
+    font-size: 14px;
+    padding: 0;
+    color: $--color-text;
+    .el-input__inner {
+      height:50px;
+      line-height:50px;
+      font-size:27px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      color: #a8a8a8;
+      // &::-webkit-input-placeholder {
+      //   color: #a8a8a8;
+      // }
+    }
+  }
+
+  @include e(button) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 50px;
+    background: $--color-primary;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: $--color-white;
+    font-size: 27px;
+    font-weight: bold;
+    border: none;
+    padding: 0;
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+      box-shadow: none;
+      color: $--color-white;
+    }
+  }
+
+  @include e(container) {
+    @include container();
+    padding: 70px 0;
+  }
+
+  @include e(container-title) {
+    font-size: 36px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight:400;
+    color: $--color-heading;
+  }
+  @include e(container-text) {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1;
+    color: $--color-gray-2;
+  }
+
+  @include e(container-inner) {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 1050px;
+    margin: 30px auto 0;
+    box-sizing: border-box;
+    text-align: center;
+    p {
+      font-size: 68px;
+      color: $--color-text;
+    }
+    h3 {
+      font-size: 18px;
+      color: $--color-gray-3;
+      font-style: italic;
+      font-weight: 300;
+    }
+  }
+}

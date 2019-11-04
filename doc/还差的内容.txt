@@ -1,0 +1,45 @@
+2019年10月14日完成的功能
+1、个人中心的图表数据功能 [基本完成，缺少点图数据，和表格数据格式不好理解]
+
+2、产品详情界面的段落内容设置 【已完成】
+
+3、产品详情界面头部的点击跳转问题
+
+4、我的商品界面的产品筛选 【已完成】
+
+5、产品列表界面的标题样式的修改 【OK】
+
+6、邀请界面的链接添加 【后台无接口】
+
+8、抽屉组建的布局调整  【已完成】
+
+9.登录界面的响应式问题 【已完成】
+
+2019年10月15日完成的功能
+1，各部分的显示隐藏问题 
+2，多语言处理问题 [已完成]
+3，每个页面好好测试
+4，设置密码流程问题 [貌似是确实接口内容]
+5，多语言设置问题
+6，如果有补充接口就完成补充接口的的内容
+7，没有数据的情况下，应该如何去显示的问题
+
+2019年10月16日完成的功能
+
+登陆的账号信息
+
+
+https://www.eolinker.com/#/share/index?shareCode=JFvixX
+
+https://fundrise.com/login
+
+johnney.aventador@gmail.com
+nobFec-sugni2-vykbyn
+
+http://timein.leanapp.cn/fd/overview/my_cases_chart 再不行mock你就先用这个备用的地址
+timein.leanapp.cn/fd
+
+https://fundrise.com/login
+
+johnney@zhanggroup.com
+pygce1-tufjet-jeKpep

@@ -1,0 +1,133 @@
+
+@include b(login) {
+
+  @include container();
+
+  @include when(login) {
+    padding-top: 113px;
+  }
+
+  @include when(create-account) {
+    padding-top: 83px;
+  }
+
+  @include e(title) {
+    height: auto;
+    width: 100%;
+    font-size: 48px;
+    text-align: center;
+    line-height: 68px;
+    color: $--color-heading;
+    margin-top: 0;
+    margin-bottom: 45px;
+    font-weight: 300;
+  }
+
+  @include e(card) {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 5px;
+    border: 1px solid $--color-border;
+    box-sizing: border-box;
+    margin-bottom: 230px;
+  }
+
+  @include e(card-header) {
+    padding: 25px 25px 0;
+    h3 {
+      font-size: 18px;
+      font-weight: normal;
+      color: $--color-heading;
+      margin: 0;
+    }
+    p {
+      font-size: 14px;
+      color: $--color-gray-3;
+      line-height: 24px;
+      margin: 0 0 10px;
+    }
+
+    & + .dc-login__card-inner {
+      padding-top: 15px;
+    }
+  }
+  @include e(card-inner) {
+    padding: 25px;
+    box-sizing: border-box;
+    .link,
+    .el-checkbox__label {
+      font-weight: 400;
+      &,
+      &:focus,
+      &:active {
+        color: $--color-gray-3;
+        &:hover {
+          color: $--color-gray-3;
+        }
+      }
+    }
+  }
+  @include e(card-footer) {
+    position: relative;
+    width: 100%;
+    padding: 25px;
+    border-top: 1px solid $--color-border;
+  }
+
+  @include e(form) {
+    .el-form-item {
+      &.is-last {
+        margin-bottom: 0;
+      }
+    }
+    .el-form-item__label {
+      font-size: 16px;
+      font-weight: bold;
+      color: $--color-gray-1;
+      line-height: 30px;
+      font-family: $--font-heading;
+      font-weight: bold;
+    }
+    .el-form-item__error {
+      font-size: 14px;
+      line-height: 1.2;
+    }
+    .el-input__inner {
+      font-family: $--font-normal;
+    }
+  }
+
+  @include e(form-bottom) {
+    line-height: 30px;
+    .el-checkbox__label,
+    .text-link {
+      font-size: 16px;
+    }
+  }
+
+  @include e(button) {
+    margin-top: 15px;
+    width: 100%;
+    font-weight: bold;
+  }
+}
+
+@include res(xs) {
+  @include b(login) {
+    @include when(login) {
+      padding-top:25px;
+    }
+    @include e(title) {
+      font-size: 32px;
+      line-height: 48px;
+      margin-bottom: 20px;
+    }
+    @include e(card) {
+      margin-bottom: 35px;
+    }
+  }
+}

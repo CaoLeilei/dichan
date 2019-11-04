@@ -1,0 +1,22 @@
+export default {
+  pageTitle: 'Create an account',
+  cardText: 'Let’s get started.',
+  cardTitle: 'To invest, please create an account.',
+  firstNameLabel: 'First name',
+  lastNameLabel: 'Last name',
+  emailAddressLabel: 'Email address',
+  phoneNumberLabel: 'Phone number',
+  passwordLabel: 'Password',
+  confirmPasswordLabel: 'Password confirm',
+  agreeText: 'I have reviewed and agree to the Terms of Service, Privacy Policy.',
+  continueBtn: 'Continue',
+  firstNameEmpty: '',
+  lastNameEmpty: '',
+  emailAddressEmpty: '',
+  emailAddressError: '',
+  phoneNumberEmpty: '',
+  phoneNumberError: '',
+  passwordEmpty: '',
+  passwordToShort: '',
+  confirmPasswordError: ''
+};

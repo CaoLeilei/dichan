@@ -1,0 +1,445 @@
+
+@include b(account) {
+  @include e(top) {
+    position: relative;
+    background: linear-gradient(to right, $--color-link, $--color-heading);
+    //margin-bottom: 60px;
+  }
+  @include e(top-inner) {
+    position: relative;
+    padding-top: 50px;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+  }
+  @include e(top-row) {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  @include e(top-col) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  @include e(base-info) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    color: $--color-white;
+    .base-info-left {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .account-info {
+      position: relative;
+      display: inline-block;
+      font-size: 48px;
+      line-height: 48px;
+      font-weight: 300;
+      vertical-align: text-top;
+      span {
+        font-size: 24px;
+        font-weight: 400;
+        vertical-align: text-top;
+      }
+    }
+    .base-info-right {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-top: 16px;
+    }
+    .statistic-group {
+      display: flex;
+      justify-content: flex-start;
+    }
+    .statistic-item {
+      margin-left: 24px;
+      padding-left: 24px;
+      border-left: 1px solid RGBA(255, 255, 255, .2);
+      text-align: left;
+      &:first-child {
+        border-left: none;
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+    .info-item {
+      display: inline-block;
+      text-align: left;
+      h4 {
+        font-size: 12px;
+        margin: 0;
+        font-weight: normal;
+        color: RGBA(255, 255, 255, .75);
+      }
+      p {
+        font-size: 24px;
+        margin: 0;
+      }
+    }
+    .top-ctr {
+      display: block;
+    }
+    .top-ctr-button {
+      height: 45px;
+      font-size: 18px;
+    }
+    .ctr-item {
+      padding-top: 10px;
+    }
+  }
+
+  // 数据主主体部分内容
+  @include e(top-data) {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    box-sizing: border-box;
+    padding: 0 15px 24px;
+    margin: 24px auto 0;
+
+    .data-panel {
+      position: relative;
+      width: 100%;
+      background: $--color-white;
+      border-radius: 4px;
+      box-sizing: border-box;
+      padding: 24px 16px;
+    }
+    .data-header {}
+    .data-title {
+      color: $--color-link;
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 15px;
+      &.is-chart-title {
+        padding-left: 15px;
+      }
+      span {
+        color: $--color-gray-2;
+        margin-left: 10px;
+      }
+    }
+    .data-body {
+      height: 250px;
+    }
+    .data-table-panel {}
+    .data-table {
+      display: flex;
+      width: 100%;
+      margin-bottom: 0;
+      .table-col {
+        width: auto;
+      }
+      .table-item {
+        width: 100%;
+        height: 46px;
+        line-height: 45px;
+        border-bottom: 1px solid $--color-border;
+        @include when(header) {
+          height: 51px;
+          line-height: 51px;
+          font-weight: bold;
+        }
+        @include when(footer) {
+          height: 51px;
+          line-height: 50px;
+          border-bottom: none;
+          font-weight: bold;
+          color: $--color-primary;
+        }
+      }
+      .td-bottom {
+        font-weight: bold;
+      }
+      .td-primary {
+        display: block;
+        flex: 1;
+        flex-shrink: 1;
+        color: $--color-primary;
+      }
+    }
+    .data-chart-panel {
+      margin-top: 24px;
+    }
+    .data-chart-box {
+      position: relative;
+      width: 100%;
+      height: 250px;
+    }
+  }
+  // 主体的部分内容
+  @include e(content) {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    padding: 48px 15px;
+    margin: 0 auto;
+    .el-aside,
+    .el-main {
+      overflow-x: hidden;
+    }
+
+  }
+  @include e(products) {
+    .product-nav {
+      display: none;
+      width: 100%;
+    }
+    .product-nav-item {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .product-nav-link {
+      font-size: 18px;
+      color: $--color-heading;
+      box-sizing: border-box;
+      border-left: 2px solid transparent;
+      font-weight: normal;
+      &.is-active {
+        font-weight: bold;
+        border-left-color: $--color-link;
+        background: #ebedef;
+      }
+      &:hover {
+        color: $--color-primary;
+      }
+    }
+    .product-item {
+      & + .product-item {
+        margin-top: 20px;
+      }
+    }
+    .dc-product-item__title-box {
+      box-sizing: border-box;
+      padding-left: 10px;
+      padding-right: 10px;
+      h3 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    .dc-product-item__num-box {
+      &:before {
+        display: none;
+      }
+      .num-item {
+        overflow: hidden;
+      }
+      h4 {
+        font-size: 14px;
+      }
+    }
+  }
+  @include e(aside) {
+    .chart-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .pie-chart,
+    .dot-chart {
+      position: relative;
+    }
+    .chart-body {
+      position: relative;
+      width: 100%;
+      padding-top: 90%;
+      box-sizing: border-box;
+      &.dot-chart-body {
+        padding-top: 67%;
+      }
+    }
+    .pie-chart {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .pie-chart-title {
+      position: absolute;
+      transform: translateX(-50%) translateY(-34%);
+      top: 50%;
+      left: 50%;
+      z-index: 50;
+      width: 190px;
+      text-align: center;
+      &.is-project {
+        transform: translateX(-50%) translateY(-50%);
+      }
+      h3 {
+        margin: 0;
+        font-size: 14px;
+        color: $--color-gray-3;
+        font-weight: normal;
+        font-family: $--font-normal;
+        @include utils-ellipsis;
+      }
+      p {
+        font-size: 33px;
+        line-height: 34px;
+        margin: 8px 0 8px;
+        span {
+          font-size: 16px;
+          line-height: 30px;
+          vertical-align: text-top;
+        }
+      }
+    }
+    .pie-chart-footer {
+      position: relative;
+      margin-top: 10px;
+    }
+    .pie-chart-footer-inner {
+      position: relative;
+      width: 100%;
+      height: 35px;
+      padding-left: 55px;
+      padding-right: 55px;
+      box-sizing: border-box;
+      .text-box {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        text-align: center;
+        color: $--color-gray-2;
+        &.left {
+          left: 5px;
+        }
+        &.right {
+          right: 5px;
+        }
+        h4 {
+          font-size: 14px;
+        }
+      }
+      h4 {
+        margin: 0 0 2px;
+        font-weight: normal;
+      }
+      p {
+        margin: 0;
+        font-weight: bold;
+      }
+      .process-box {
+        width: 100%;
+        padding-top: 4px;
+        @include utils-clearfix;
+      }
+      .process-item {
+        display: block;
+        float: left;
+        padding: 0 3px;
+      }
+      .process-item-inner {
+        display: block;
+        height: 10px;
+        border-radius: 5px;
+        background: $--color-heading;
+      }
+    }
+    .dot-chart-header {
+      text-align: center;
+      font-size: 14px;
+      color: $--color-gray-3;
+      span {
+        color: $--color-gray-2;
+        font-weight: bold;
+        font-size: 16px;
+        margin-right: 5px;
+      }
+    }
+    .dot-chart-footer {
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      line-height: 24px;
+      color: $--color-gray-3;
+    }
+  }
+}
+
+//  主要 用在手机上线是
+@include res(xs) {}
+// 标准尺寸的内容
+@include res(sm) {
+
+}
+
+@include res(lg) {
+  @include b(account) {
+    @include e(top) {
+      margin-bottom: 60px;
+    }
+    @include e(base-info) {
+      flex-direction: row;
+      .base-info-left {
+        width: auto;
+      }
+      .base-info-right {
+        margin-top: 0;
+      }
+
+      .statistic-item:first-child {
+        margin-left: 24px;
+        padding-left: 24px;
+        border-left: 1px solid RGBA(255, 255, 255, .2);
+
+      }
+    }
+    @include e(top-data) {
+      padding-bottom: 0;
+      height: 278px;
+      .data-chart-panel {
+        margin-top: 0;
+      }
+    }
+    @include e(products) {
+      .product-nav {
+        display: block;
+      }
+    }
+  }
+}
+
+@include res(xs) {
+  @include b(account) {
+    @include e(aside-col) {
+      display: none;
+    }
+    @include e(aside) {
+      display: none;
+    }
+    @include e(base-info) {
+      .base-info-left {
+        justify-content: center;
+      }
+      .base-info-right {
+        flex-direction: column;
+      }
+      .statistic-group {
+        justify-content: center;
+      }
+      .top-ctr {
+        margin-top: 16px;
+      }
+    }
+  }
+}

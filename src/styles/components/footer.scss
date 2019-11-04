@@ -1,0 +1,53 @@
+@include b(footer) {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right bottom, $--color-heading, $--color-link);
+  @include e(inner) {
+    @include container();
+    box-sizing: border-box;
+    padding-top: 90px;
+    padding-bottom: 50px;
+    color: $--color-primary;
+  }
+
+  @include e(title) {
+    text-align: center;
+    margin-bottom: 54px;
+
+  }
+  h2, h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  @include e(item) {
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+    margin-bottom: 30px;
+
+    @include when(phone) {
+      background: url("../assets/images/footer-phone.png") no-repeat top center;
+    }
+    @include when(email) {
+      background: url("../assets/images/footer-email.png") no-repeat top center;
+    }
+    @include when(info) {
+      background: url("../assets/images/footer-info.png") no-repeat top center;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 25px;
+      margin-bottom: 0;
+      color: $--color-white;
+    }
+  }
+}

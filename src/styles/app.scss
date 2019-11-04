@@ -1,0 +1,32 @@
+
+@include b(app) {
+  position: relative;
+  margin: 0;
+  padding: 48px 0  0;
+  box-sizing: border-box;
+}
+
+@include b(module) {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  @include when(header) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    box-shadow: 1px 10px 10px RGBA(0, 0, 0, .1);
+    background: $--color-body-background;
+  }
+}
+
+@include b(container) {
+  @include container();
+}
+
+@include res(lg) {
+  @include b(app) {
+    padding-top: 70px;
+  }
+}

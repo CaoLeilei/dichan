@@ -1,0 +1,23 @@
+
+@include b(checkbox) {
+  position: relative;
+  color: $--color-gray-3;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"] + span {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid $--color-gray-3;
+    margin-right: 10px;
+  }
+  input[type="checkbox"]:checked + span {
+    background: #ddd;
+  }
+}

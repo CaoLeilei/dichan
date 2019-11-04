@@ -1,0 +1,275 @@
+@include b(product-item-card) {
+  &:hover {
+    transform: translateY(-8px);
+  }
+}
+@include b(product-item){
+  position: relative;
+  display: block;
+  width: 100%;
+  background: $--color-white;
+  border: 1px solid #dfe0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+
+  @include e(image-box) {
+    position: relative;
+    width: 100%;
+    padding-top: 72.7%;
+
+    .image-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      z-index: 1;
+    }
+    img {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .text-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      z-index: 2;
+      background: RGBA(0, 0, 0, .5);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    &:hover {
+      .text-mask {
+        opacity: 1;
+      }
+    }
+    .text-box {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -43px;
+      margin-top: -15px;
+      height: 30px;
+      width: 86px;
+      display: block;
+      line-height: 30px;
+      text-align: center;
+      color: $--color-white;
+      font-size: 14px;
+      background: $--color-black;
+      border-radius: 3px;
+    }
+  }
+  @include e(info-box) {
+    position: relative;
+    width: 100%;
+
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+  }
+  @include e(title-box) {
+    width: 100%;
+    padding-top: 10px;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    @include utils-ellipsis();
+    h3 {
+      color: $--color-primary;
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+    p {
+      position: relative;
+      font-size: 14px;
+      line-height: 20px;
+      color: $--color-gray-3;
+      height: 20px;
+      font-weight: 400;
+      @include utils-ellipsis();
+    }
+  }
+  @include e(num-box) {
+    position: relative;
+    //display: flex;
+    //justify-content: center;
+    //align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    border-top: 1px solid #e8e9e9;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    white-space: nowrap;
+    height: 60px;
+    overflow: hidden;
+    @include utils-clearfix();
+    &:before {
+      content: " ";
+      position: absolute;
+      left: auto;
+      top: 0;
+      right: 0;
+      display: block;
+      z-index: 5;
+      width: 50px;
+      height: 100%;
+      background:  linear-gradient(to right, RGBA(255, 255, 255, 0.1),  RGBA(255, 255, 255, .8), RGBA(255, 255, 255, 1));
+    }
+    @include when(show-all) {
+      justify-content: flex-start;
+
+    }
+
+    .num-item {
+      position: relative;
+      display: inline-block;
+      min-height: 1px;
+      text-align: center;
+      height: 100%;
+      padding: 0 5px;
+      width: auto;
+      min-width: 90px;
+      z-index: 1;
+      & + .num-item {
+        border-left: 1px solid #e8e9e9;
+      }
+    }
+
+    h4 {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: normal;
+      color: $--color-gray-3;
+    }
+    p {
+      position: relative;
+      font-size: 14px;
+      line-height: 1.4;
+      color: $--color-gray-3;
+    }
+
+    .num-item-content {
+      font-size: 16px;
+    }
+
+  }
+  @include e(quick-view) {
+    width: 100%;
+    background: transparent;
+
+    .close-btn {
+      display: block;
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      left: auto;
+      right: 16px;
+      top: 16px;
+      z-index: 5;
+      line-height: 32px;
+      text-align: center;
+      border-radius: 50%;
+      background: RGBA(0, 0, 0, .5);
+      color: $--color-white;
+      font-size: 16px;
+    }
+    .el-dialog__header {
+      display: none;
+    }
+    .el-dialog__body {
+      padding: 0;
+    }
+    .dc-product-item {
+      border: none;
+      cursor: default;
+    }
+    .dc-product-item__image-box {
+      .text-mask {
+        display: none;
+      }
+    }
+    .dc-product-item__title-box {
+      font-weight: 300;
+      h3 {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 300;
+        margin-bottom: 0;
+      }
+      p {
+        height: auto;
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  @include e(quick-word) {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: 400;
+    @include utils-clearfix;
+
+    .word-item {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 33px;
+      &:before {
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 17px;
+        display: block;
+        width: 100%;
+        border-top: 1px dotted $--color-border;
+      }
+    }
+    .word-title,
+    .word-value {
+      position: relative;
+      font-size: 16px;
+      z-index: 5;
+      display: inline-block;
+      padding-left: 8px;
+      padding-right: 8px;
+      background: $--color-white;
+    }
+    .word-title {
+      color: $--color-gray-3;
+    }
+  }
+
+  @include e(quick-footer) {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 16px 0 32px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+}

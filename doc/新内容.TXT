@@ -1,0 +1,12 @@
+1 。 饼图里项目列表中，每个项目再给一个id字段。
+2. 用户点了项目之后，给一个新接口，可以通过id获取卡片缩略数据，然后你就弹出quickview
+3. 用户点quickview上的卡片根据id进详情页
+
+https://ssr.pkssr.site/link/QNTFTdd57QtlRrxP?mu=1
+
+
+水之念:
+然后我把真实接口数据放到jzhang.avosapps.us那个接口上了，用hzq0317@qq.com Aa123456789 账号登录，里面可以切换中英文显示。
+
+水之念:
+接口数据慢一些，还没有优化，timein.leanapp.cn 那个接口还是老的mock数据会快。
