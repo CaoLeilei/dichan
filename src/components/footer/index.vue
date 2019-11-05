@@ -8,20 +8,19 @@
         <div class="col-12 col-md-4">
           <div class="dc-footer__item is-phone">
             <h3>{{$t('components.footer.phoneTitle')}}</h3>
-            <p>800.000.0000</p>
-            <p>800.000.0000</p>
+            <p v-html="$t('components.footer.phoneContent')"></p>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="dc-footer__item is-email">
             <h3>{{$t('components.footer.emailTitle')}}</h3>
-            <p>info@primior</p>
+            <p v-html="$t('components.footer.emailContent')"></p>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="dc-footer__item is-info">
             <h3>{{$t('components.footer.emailTitle')}}</h3>
-            <p>Request information here</p>
+            <p v-html="$t('components.footer.infoContent')"></p>
           </div>
         </div>
       </div>
