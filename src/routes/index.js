@@ -31,11 +31,6 @@ export default [
     component: CreateAccount
   },
   {
-    name: 'createAccountInvite',
-    path: '/create-account/:inviteCode',
-    component: CreateAccount
-  },
-  {
     name: 'forgottenPassword',
     path: '/forgotten-password',
     component: ForgottenPassword

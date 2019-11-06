@@ -1,3 +1,16 @@
+.lang-icon {
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20px;
+  height: 20px;
+
+  &.en-us {
+    background: url("../assets/images/lang-flag-en.png") no-repeat center;
+  }
+  &.zh-cn {
+    background: url("../assets/images/lang-flag-zh.png") no-repeat center;
+  }
+}
 @include b(header) {
  @include container();
   height: 48px;
@@ -41,16 +54,7 @@
   }
   @include e(dropwdown) {
     margin-left: 20px;
-    .lang-icon {
-      display: inline-block;
-      vertical-align: text-top;
-      width: 20px;
-      height: 20px;
 
-      &.en-us {
-        background: url("../assets/images/lang-flag-en.png") no-repeat center;
-      }
-    }
     .dropdown-button {
       font-size: 16px;
       font-weight: normal;

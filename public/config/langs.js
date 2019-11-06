@@ -116,7 +116,8 @@ window.langs = {
         phoneNumberError: '请输入正确的手机号。',
         passwordEmpty: '密码不可为空。',
         passwordToShort: '密码太短。',
-        confirmPasswordError: '两次输入密码需要相同。'
+        confirmPasswordError: '两次输入密码需要相同。',
+        createAccountSuccess: '账号创建成功'
       },
       forgottenPassword: {
         pageTitle: '重置密码',
@@ -312,13 +313,13 @@ window.langs = {
         }
       },
       invite: {
-        topTitle: '邀请你的朋友加入',
-        topText: '你通过下方链接，每邀请1个用户加入，就可以获得90天的咨询服务费的减免。',
-        copyBtn: '复制',
-        topInputPlaceholder: 'https://primior.com/',
-        containerTitle: '你邀请的用户数',
-        containerText: '咨询服务费的减免可与你的经纪人详细了解。',
-        invitesAccepted: '已邀请',
+        topTitle: 'Invite your friends to join Primior. ',
+        topText: 'Have yout advisory fees waived for 90 days with each friend who joins Primior using your inviten Link.',
+        copyBtn: 'Copy',
+        topInputPlaceholder: 'https://XXXXX.com/invite/ewujBas',
+        containerTitle: 'No invites accpeted yet',
+        containerText: 'Invite your friends to Primior to get your advisory fees waived.',
+        invitesAccepted: 'Invites Accepted',
         daysRemaining: 'Days remaining',
         daysEarned: 'Days earned'
       },
@@ -355,7 +356,8 @@ window.langs = {
         phoneNumberError: '',
         passwordEmpty: '',
         passwordToShort: '',
-        confirmPasswordError: ''
+        confirmPasswordError: '',
+        createAccountSuccess: 'create account success'
       },
       forgottenPassword: {
         pageTitle: 'Forgotten Password',

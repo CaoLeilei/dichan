@@ -16,7 +16,7 @@
     </el-row>
     <div class="view-all-box">
       <el-image ref="imgPreview" :preview-src-list="photoSrcList"
-                :src="prevImageSrc" style="width: 0; height: 0">
+                :src="prevImageSrc" :index="prevImageIndex" style="width: 0; height: 0">
         <span slot="error">&nbsp;</span>
       </el-image>
       <el-button type="text" @click="onViewAllBtnClick">
@@ -45,6 +45,7 @@
     data () {
       return {
         prevImageSrc: '',
+        prevImageIndex: 0,
         photoSrcList: []
       };
     },

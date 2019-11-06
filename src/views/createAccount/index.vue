@@ -116,9 +116,9 @@
     },
     created () {
       let routeName = this.$route.name;
-      let params = this.$route.params;
-      if (routeName && params && params.inviteCode) {
-        this.inviteCode = params.inviteCode;
+      let query = this.$route.query;
+      if (routeName && query && query.invite) {
+        this.inviteCode = query.invite;
         this.source = CREATE_ACCOUNT_TYPE.INVITED;
       }
     },
@@ -145,6 +145,12 @@
           if (response) {
             this.updateUserName(response.name);
           }
+          let message = this.$t('views.createAccount.createAccountSuccess');
+          this.$message({
+            message: message,
+            type: 'success'
+          });
+          this.$router.push({path: '/browse'});
         });
       },
       onContinueBtnClick () {

@@ -9,6 +9,7 @@
     </el-button>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item :command="language.key" v-for="language in languageList" :key="language.key">
+        <i class=" el-icon--left lang-icon" :class="language.icon"></i>
         {{language.name}}
       </el-dropdown-item>
     </el-dropdown-menu>
