@@ -45,7 +45,10 @@
             </el-col>
             <el-col :span="24">
               <el-form-item class="is-last">
-                <el-checkbox v-model="model.agree">{{$t('views.createAccount.agreeText')}}</el-checkbox>
+                <el-checkbox v-model="model.agree">
+                  {{$t('views.createAccount.agreeText')}}
+                  <a :href="privacyPolicyUrl" target="_blank" @click.stop>{{$t('views.createAccount.privacyPolicy')}}</a>
+                </el-checkbox>
               </el-form-item>
             </el-col>
           </el-row>
@@ -63,7 +66,7 @@
 </template>
 
 <script>
-  import { mapActions } from  'vuex';
+  import { mapGetters, mapActions } from  'vuex';
   import Services from '../../services';
   const CREATE_ACCOUNT_TYPE = {
     GENERAL: 0,
@@ -118,6 +121,11 @@
         this.inviteCode = params.inviteCode;
         this.source = CREATE_ACCOUNT_TYPE.INVITED;
       }
+    },
+    computed: {
+      ...mapGetters([
+        'privacyPolicyUrl'
+      ])
     },
     methods: {
       ...mapActions([

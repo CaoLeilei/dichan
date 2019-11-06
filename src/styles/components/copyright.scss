@@ -14,5 +14,13 @@
     line-height: 50px;
     color: $--color-gray-3;
     font-size: 14px;
+    a {
+      color: $--color-gray-3;
+      text-decoration: underline;
+      font-weight: normal;
+      &:hover {
+        color: $--color-white;
+      }
+    }
   }
 }

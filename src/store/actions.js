@@ -21,5 +21,8 @@ export default {
   },
   updateIsShowCommongMoudle ({ commit }, isShow) {
     commit(MUTATION_TYPE.UPDATE_IS_SHOW_COMMONG_MOUDLE, isShow);
+  },
+  updatePrivacyPolicyUrl ({ commit }, url) {
+    commit(MUTATION_TYPE.UPDATE_PRIVACY_POLICY_URL, url);
   }
 }

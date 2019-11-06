@@ -97,6 +97,10 @@
           this.showLoading();
           return this._redeemTransactionOrder();
         }).then(() => {
+          this.$alert(this.$t('views.transactions.redeemSuccess'), this.$t('common.messageTitle'), {
+            confirmButtonText: this.$t('common.messageBoxOkBtnText'),
+            type: 'success'
+          });
           this.$emit('redeem-success');
         }).finally(() => {
           this.closeLoading();

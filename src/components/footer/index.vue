@@ -19,7 +19,7 @@
         </div>
         <div class="col-12 col-md-4">
           <div class="dc-footer__item is-info">
-            <h3>{{$t('components.footer.emailTitle')}}</h3>
+            <h3>{{$t('components.footer.infoTitle')}}</h3>
             <p v-html="$t('components.footer.infoContent')"></p>
           </div>
         </div>

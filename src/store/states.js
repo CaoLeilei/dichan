@@ -4,5 +4,6 @@ export default {
   userIsLogin: false,
   showSetting: false,
   userProjectCount: 0,
-  isShowCommonModule: false
+  isShowCommonModule: false,
+  privacyPolicyUrl: 'javascript:;'
 };

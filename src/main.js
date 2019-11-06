@@ -58,6 +58,8 @@ function initApp () {
     },
     created() {
       this.loadStorageLanguage();
+      this.setHtmlPageTitle();
+      this.loadCommonConfig();
       this.checkUserIsLogin().then(() => {
         return this.loadProductList();
       }).then(() => {
@@ -78,8 +80,16 @@ function initApp () {
         'updateUserIsLogin',
         'updateUserName',
         'updateLanguage',
-        'updateUserProjectCount'
+        'updateUserProjectCount',
+        'updatePrivacyPolicyUrl'
       ]),
+      loadCommonConfig () {
+        this.updatePrivacyPolicyUrl(window.common.privacyPolicyUrl);
+      },
+      setHtmlPageTitle () {
+        let title = this.$t('common.headerTitle');
+        document.title = title;
+      },
       loadStorageLanguage () {
         let lang = getLocalstorage('dc-lang');
         if (lang) {

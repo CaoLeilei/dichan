@@ -13,12 +13,16 @@ export const showSetting = function (state) {
 
 export const userProjectCount = function (state) {
   return state.userProjectCount;
-}
+};
 
 export const userIsLogin = function (state) {
   return state.userIsLogin;
-}
+};
 
 export const isShowCommonModule = function (state) {
   return state.isShowCommonModule;
-}
+};
+
+export const privacyPolicyUrl = function (state) {
+  return state.privacyPolicyUrl;
+};

@@ -14,7 +14,7 @@
                   <tr>
                     <th scope="col" class="text-left">{{$t('views.portfolio.tableHeader.name')}}</th>
                     <th scope="col" class="text-center" style="width: 20%">{{$t('views.portfolio.tableHeader.principalInvested')}}</th>
-                    <th scope="col" class="text-center">{{$t('views.portfolio.tableHeader.principalInvested')}}</th>
+                    <th scope="col" class="text-center">{{$t('views.portfolio.tableHeader.ofPortfplio')}}</th>
                     <th scope="col" class="text-center">{{$t('views.portfolio.tableHeader.dividend')}}</th>
                     <th scope="col" class="text-center">{{$t('views.portfolio.tableHeader.appreciation')}}</th>
                     <th scope="col" class="text-center">{{$t('views.portfolio.tableHeader.positionTotal')}}</th>

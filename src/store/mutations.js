@@ -18,5 +18,8 @@ export default {
   },
   [MUTATION_TYPE.UPDATE_IS_SHOW_COMMONG_MOUDLE] (state, isShow) {
     state.isShowCommonModule = isShow;
+  },
+  [MUTATION_TYPE.UPDATE_PRIVACY_POLICY_URL] (state, url) {
+    state.privacyPolicyUrl = url;
   }
 };

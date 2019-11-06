@@ -10,11 +10,6 @@
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5h2c.6 0 1 .4 1 1s-.4 1-1 1H3c-.6 0-1-.4-1-1s.4-1 1-1zm0 6h2c.6 0 1 .4 1 1s-.4 1-1 1H3c-.6 0-1-.4-1-1s.4-1 1-1zm0 6h2c.6 0 1 .4 1 1s-.4 1-1 1H3c-.6 0-1-.4-1-1s.4-1 1-1zM9 5h12c.6 0 1 .4 1 1s-.4 1-1 1H9c-.6 0-1-.4-1-1s.4-1 1-1zm0 6h12c.6 0 1 .4 1 1s-.4 1-1 1H9c-.6 0-1-.4-1-1s.4-1 1-1zm0 6h12c.6 0 1 .4 1 1s-.4 1-1 1H9c-.6 0-1-.4-1-1s.4-1 1-1z" fill="#ffffff"></path></svg>
             </span>
             <el-dropdown-menu slot="dropdown" class="dc-overview__header-dropdown">
-              <el-dropdown-item command="brights">
-                <div class="header-dropdown-item">
-                  {{$t('views.overview.header.brights')}}
-                </div>
-              </el-dropdown-item>
               <el-dropdown-item v-for="item in paragrahTabs" :key="item.paragraph_id" :command="item.paragraph_id">
                 <div class="header-dropdown-item" @click="onParagraphTabClick(item)">
                   {{item.tab_name}}
@@ -29,11 +24,6 @@
         </div>
         <div class="dc-overview__header-right float-right clearfix">
           <ul class="nav float-left sub-title-menu">
-            <li class="nav-item" v-if="brights && brights.length">
-              <a href="javascript:;" class="nav-link" @click="onModuleItemClick('brights')">
-                {{$t('views.overview.header.brights')}}
-              </a>
-            </li>
             <li class="nav-item" v-for="item in paragrahTabs" :key="item.id">
               <a href="javascript:;" class="nav-link"
                  @click="onParagraphTabClick(item)">

@@ -2,6 +2,7 @@
 window.langs = {
   zh: {
     common: {
+      headerTitle: '网站标题',
       date: {
         January: '1月',
         February: '2月',
@@ -15,7 +16,10 @@ window.langs = {
         October: '10月',
         November: '11月',
         December: '12月'
-      }
+      },
+      messageTitle: '消息',
+      messageBoxOkBtnText: '确定',
+      messageBoxCancelBtnText: '取消'
     },
     components: {
       header: {
@@ -23,7 +27,7 @@ window.langs = {
           portfolio: '投资组合',
           transactions: '交易订单',
           invitation: '邀请',
-          browse: '浏览项目',
+          browse: '更多项目',
           language: '语言',
           settings: '设置',
           logout: '退出登录',
@@ -43,7 +47,8 @@ window.langs = {
         emailContent: 'contact@primior.com',
         infoContent: '请访问官网<br/>Primior.com'
       },
-      copyright: 'Copyright 2019 Primior. All rights reserved. Privacy Policy'
+      copyright: 'Copyright 2019 Primior. All rights reserved.',
+      privacyPolicy: 'Privacy Policy'
     },
     views: {
       overview: {
@@ -68,13 +73,13 @@ window.langs = {
         }
       },
       invite: {
-        topTitle: 'Invite your friends to join Primior. ',
-        topText: 'Have yout advisory fees waived for 90 days with each friend who joins Primior using your inviten Link.',
-        copyBtn: 'Copy',
-        topInputPlaceholder: 'https://XXXXX.com/invite/ewujBas',
-        containerTitle: 'No invites accpeted yet',
-        containerText: 'Invite your friends to Primior to get your advisory fees waived.',
-        invitesAccepted: 'Invites Accepted',
+        topTitle: '邀请你的朋友加入',
+        topText: '你通过下方链接，每邀请1个用户加入，就可以获得90天的咨询服务费的减免。',
+        copyBtn: '复制',
+        topInputPlaceholder: 'https://primior.com/',
+        containerTitle: '你邀请的用户数',
+        containerText: '咨询服务费的减免可与你的经纪人详细了解。',
+        invitesAccepted: '已邀请',
         daysRemaining: 'Days remaining',
         daysEarned: 'Days earned'
       },
@@ -100,7 +105,8 @@ window.langs = {
         phoneNumberLabel: '手机号',
         passwordLabel: '密码',
         confirmPasswordLabel: '确认密码',
-        agreeText: '阅读并同意相关投资条款。',
+        agreeText: '阅读并同意相关',
+        privacyPolicy: '投资条款。',
         continueBtn: '完成注册',
         firstNameEmpty: '请输入正确的名字。',
         lastNameEmpty: '请输入正确的姓氏。',
@@ -157,7 +163,7 @@ window.langs = {
         sidebar: {
           debt: '债务',
           equity: '股本',
-          activeProjects: '我的所有项目',
+          activeProjects: '个进行中的项目',
           primiorRating: 'Primior评级',
           yourPortfplio: '所有项目'
         }
@@ -182,6 +188,7 @@ window.langs = {
         agreeText: '自动将分红再投资到我投资的项目中。',
         order: '订单#',
         redeemConfirmMessage: '提交申请后，你的经纪人将与你联系来完成后续操作。',
+        redeemSuccess: '提交成功！',
         redeemConfirmTitle: '赎回申请',
         cancel: '取消',
         submit: '提交',
@@ -201,7 +208,21 @@ window.langs = {
         call: '联系电话',
         uniteSates: '美国',
         chinese: '中国',
-        errorMessage: '获取信息失败，请稍后再试。'
+        errorMessage: '获取信息失败，请稍后再试。',
+        contact: {
+          en: {
+            address: 'xxxxxxxx',
+            email: 'xxxxxxxx@xxxx',
+            phone: '800.000.00',
+            name: 'John De Yonker'
+          },
+          zh: {
+            address: 'xxxxxxxx',
+            email: 'xxxxxxxx@xxxx',
+            phone: '800.000.00',
+            name: 'Andy Lau'
+          }
+        }
       },
       welcome: {
         pageTitle: 'Welcome! You’ er in good company',
@@ -220,6 +241,7 @@ window.langs = {
   },
   en: {
     common: {
+      headerTitle: 'headerTitle',
       date: {
         January: 'Jan',
         February: 'Feb',
@@ -233,7 +255,10 @@ window.langs = {
         October: 'Otc',
         November: 'Nov',
         December: 'Dec'
-      }
+      },
+      messageTitle: 'Message',
+      messageBoxOkBtnText: 'OK',
+      messageBoxCancelBtnText: 'Cancel'
     },
     components: {
       header: {
@@ -261,7 +286,8 @@ window.langs = {
         emailContent: 'contact@primior.com',
         infoContent: 'Primior.com'
       },
-      copyright: 'Copyright 2019 Primior. All rights reserved. Privacy Policy'
+      copyright: 'Copyright 2019 Primior. All rights reserved.',
+      privacyPolicy: 'Privacy Policy'
     },
     views: {
       overview: {
@@ -286,13 +312,13 @@ window.langs = {
         }
       },
       invite: {
-        topTitle: 'Invite your friends to join Primior. ',
-        topText: 'Have yout advisory fees waived for 90 days with each friend who joins Primior using your inviten Link.',
-        copyBtn: 'Copy',
-        topInputPlaceholder: 'https://XXXXX.com/invite/ewujBas',
-        containerTitle: 'No invites accpeted yet',
-        containerText: 'Invite your friends to Primior to get your advisory fees waived.',
-        invitesAccepted: 'Invites Accepted',
+        topTitle: '邀请你的朋友加入',
+        topText: '你通过下方链接，每邀请1个用户加入，就可以获得90天的咨询服务费的减免。',
+        copyBtn: '复制',
+        topInputPlaceholder: 'https://primior.com/',
+        containerTitle: '你邀请的用户数',
+        containerText: '咨询服务费的减免可与你的经纪人详细了解。',
+        invitesAccepted: '已邀请',
         daysRemaining: 'Days remaining',
         daysEarned: 'Days earned'
       },
@@ -318,7 +344,8 @@ window.langs = {
         phoneNumberLabel: 'Phone number',
         passwordLabel: 'Password',
         confirmPasswordLabel: 'Password confirm',
-        agreeText: 'I have reviewed and agree to the Terms of Service, Privacy Policy.',
+        agreeText: 'I have reviewed and agree to the Terms of Service,',
+        privacyPolicy: 'Privacy Policy.',
         continueBtn: 'Continue',
         firstNameEmpty: '',
         lastNameEmpty: '',
@@ -392,6 +419,7 @@ window.langs = {
           positionTotal: 'Position Total',
           accountTotal: 'Account total'
         }
+
       },
       transactions: {
         title: 'Transactions',
@@ -400,6 +428,7 @@ window.langs = {
         agreeText: 'Automatically reinvest my dividends according to my investment plan.',
         order: 'Order#',
         redeemConfirmMessage: 'Your agent will contact you for further procedure once you submit the request.',
+        redeemSuccess: 'Redeem Success',
         redeemConfirmTitle: 'Redemption Request',
         cancel: 'Cancel',
         submit: 'Submit',
@@ -414,12 +443,26 @@ window.langs = {
       investment: {
         investOnline: 'INVEST ONLINE',
         yourInvestmentPartiner: 'YOUR INVESTMENT PARTINER',
-        address: 'Address',
-        email: 'Email',
-        call: 'Call',
+        address: 'Address:',
+        email: 'Email Address:',
+        call: 'Call:',
         uniteSates: 'Unite Sates',
         chinese: 'Chinese',
-        errorMessage: 'Get Overview Data error'
+        errorMessage: 'Get Overview Data error',
+        contact: {
+          en: {
+            address: 'xxxxxxxx',
+            email: 'xxxxxxxx@xxxx',
+            phone: '800.000.00',
+            name: 'John De Yonker'
+          },
+          zh: {
+            address: 'xxxxxxxx',
+            email: 'xxxxxxxx@xxxx',
+            phone: '800.000.00',
+            name: 'Andy Lau'
+          }
+        }
       },
       welcome: {
         pageTitle: 'Welcome! You’ er in good company',

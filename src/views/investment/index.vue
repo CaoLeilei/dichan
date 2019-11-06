@@ -14,19 +14,19 @@
             <el-col :xs="24" :sm="12" class="content">
               <div class="content-inner">
                 <h4 class="content-title">{{$t('views.investment.uniteSates')}}</h4>
-                <p>{{$t('views.investment.address')}}: xxxxxxxx</p>
-                <p>{{$t('views.investment.email')}} Address:xxxxxxxx@xxxx</p>
-                <p>{{$t('views.investment.call')}}:800.000.00</p>
-                <div class="text-right name-box">John De Yonker</div>
+                <p>{{$t('views.investment.address')}}{{$t('views.investment.contact.en.address')}}</p>
+                <p>{{$t('views.investment.email')}}{{$t('views.investment.contact.en.address')}}</p>
+                <p>{{$t('views.investment.call')}}{{$t('views.investment.contact.en.phone')}}</p>
+                <div class="text-right name-box">{{$t('views.investment.contact.en.name')}}</div>
               </div>
             </el-col>
             <el-col :xs="24" :sm="12" class="content">
               <div class="content-inner">
                 <h4 class="content-title">{{$t('views.investment.chinese')}}</h4>
-                <p>{{$t('views.investment.address')}}: xxxxxxxx</p>
-                <p>{{$t('views.investment.email')}} Address:xxxxxxxx@xxxx</p>
-                <p>{{$t('views.investment.call')}}:800.000.00</p>
-                <div class="text-right name-box">Andy Lau</div>
+                <p>{{$t('views.investment.address')}}{{$t('views.investment.contact.zh.address')}}</p>
+                <p>{{$t('views.investment.email')}}{{$t('views.investment.contact.zh.address')}}</p>
+                <p>{{$t('views.investment.call')}}{{$t('views.investment.contact.zh.phone')}}</p>
+                <div class="text-right name-box">{{$t('views.investment.contact.zh.name')}}</div>
               </div>
             </el-col>
           </el-row>
