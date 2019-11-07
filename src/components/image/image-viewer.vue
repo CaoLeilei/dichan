@@ -1,7 +1,7 @@
 <template>
   <transition name="viewer-fade">
     <div tabindex="-1" ref="el-image-viewer__wrapper" class="el-image-viewer__wrapper" :style="{ 'z-index': zIndex }">
-      <div class="el-image-viewer__mask" @click="hide"></div>
+      <div class="el-image-viewer__mask"></div>
       <!-- CLOSE -->
       <span class="el-image-viewer__btn el-image-viewer__close" @click="hide">
         <i class="el-icon-circle-close"></i>
@@ -35,26 +35,25 @@
       </div>
       <!-- CANVAS -->
       <div class="el-image-viewer__canvas">
-        <template v-for="(url, i) in urlList">
-          <img v-if="i === index"
-              ref="img"
-              class="el-image-viewer__img"
-              :key="url"
-              :src="currentImg"
-              :style="imgStyle"
-              @load="handleImgLoad"
-              @error="handleImgError"
-              @mousedown="handleMouseDown">
-        </template>
-
+        <img
+          v-for="(url, i) in urlList"
+          v-if="i === index"
+          ref="img"
+          class="el-image-viewer__img"
+          :key="url"
+          :src="currentImg"
+          :style="imgStyle"
+          @load="handleImgLoad"
+          @error="handleImgError"
+          @mousedown="handleMouseDown">
       </div>
     </div>
   </transition>
 </template>
 
 <script>
-import { on, off } from 'element-ui/lib/utils/dom';
-import { rafThrottle, isFirefox } from 'element-ui/lib/utils/util';
+import { on, off } from 'element-ui/src/utils/dom';
+import { rafThrottle, isFirefox } from 'element-ui/src/utils/util';
 
 const Mode = {
   CONTAIN: {
@@ -141,11 +140,12 @@ export default {
   watch: {
     index: {
       handler: function(val) {
+        console.log(val);
         this.reset();
         this.onSwitch(val);
       }
     },
-    currentImg() {
+    currentImg(val) {
       this.$nextTick(_ => {
         const $img = this.$refs.img[0];
         if (!$img.complete) {

@@ -7,7 +7,7 @@
         <p v-html="accountInfo"></p>
       </div>
       <div class="pie-chart-title is-project" v-if="!showAccountInfo">
-        <p>{{currentProjectPrice}}</p>
+        <p v-html="displayProjectPrice"></p>
         <h3>
          {{currentProjectName}}
         </h3>
@@ -82,6 +82,16 @@
       } = this;
       window.removeEventListener('resize', onWindowResize);
     },
+    computed: {
+      displayProjectPrice () {
+        if (this.currentProjectPrice) {
+          let principalEarnsStr = this.currentProjectPrice.toFixed(1);
+          let tempArr = principalEarnsStr.split('.');
+          return `<span>$</span>${tempArr[0]}<span>.${tempArr[1]}</span>`;
+        }
+        return '<span>$</span>0<span>.0</span>';
+      }
+    },
     methods: {
       _initPieHighCharts (data) {
         const _this = this;
@@ -136,7 +146,7 @@
                     });
                   },
                   click: function (e) {
-                    _this.$emit('show-detai', this.id);
+                    _this.$emit('show-detail', this.id);
                   }
                 }
               },

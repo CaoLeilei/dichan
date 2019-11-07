@@ -32,7 +32,7 @@
   export default {
     name: 'DcOverviewPhoto',
     components: {
-      ElImage
+      // ElImage
     },
     props: {
       photoList: {
@@ -45,7 +45,7 @@
     data () {
       return {
         prevImageSrc: '',
-        prevImageIndex: 0,
+        prevImageIndex: 1,
         photoSrcList: []
       };
     },
@@ -82,7 +82,9 @@
       _showImagePreview () {
         const $imgPreview = this.$refs['imgPreview'];
         if ($imgPreview) {
-          $imgPreview.clickHandler();
+          this.$nextTick(() => {
+            $imgPreview.clickHandler();
+          });
         }
       },
       onImageItemClick (index) {

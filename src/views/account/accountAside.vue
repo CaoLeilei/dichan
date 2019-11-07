@@ -2,7 +2,9 @@
   <div class="dc-account__aside">
     <el-row :gutter="48">
       <el-col :lg="24" :xs="12" v-if="isLoadData">
-        <dc-account-pie-chart :data="pieData" :debt-ratio="debtRatio" :account-info="accountInfo"></dc-account-pie-chart>
+        <dc-account-pie-chart :data="pieData" :debt-ratio="debtRatio"
+                              @show-detail="onShowCardDetail"
+                              :account-info="accountInfo"></dc-account-pie-chart>
       </el-col>
       <el-col :lg="24" :xs="12">
         <dc-account-dot-chart
@@ -10,6 +12,7 @@
           :project-count="projectCount"
           :ratings="ratings"
           :data="dotData"
+          @show-detail="onShowCardDetail"
         ></dc-account-dot-chart>
       </el-col>
     </el-row>
@@ -30,11 +33,15 @@
 <script>
 import DcAccountPieChart from "./accountPieChart";
 import DcAccountDotChart from "./accountDotChart";
-import DcQuickView from "@/components/quickView";
+import DcQuickView from '@/components/product-item/quickView';
 import Services from "../../services";
+import loading from '@/common/mixins/loading';
 
 export default {
   name: "DcAccountAside",
+  mixins: [
+    loading
+  ],
   components: {
     DcAccountPieChart,
     DcAccountDotChart,
@@ -53,14 +60,30 @@ export default {
       pieData: [],
       ratings: [],
       dotData: [],
-      debtRatio: 0
+      debtRatio: 0,
+      windowWidth: 0,
+      showDialog: false,
+      quickViewData: null
     };
   },
   mounted() {
+    this._computeWindowWidth();
     this._loadPieCharData();
   },
   beforeDestroy() {},
+  computed: {
+    dialogWidth () {
+      if (this.windowWidth > 768) {
+        return '768px';
+      } else {
+        return  '100%';
+      }
+    }
+  },
   methods: {
+    _computeWindowWidth () {
+      this.windowWidth = window.innerWidth;
+    },
     _loadPieCharData() {
       Services.getAccountRightPieData().then(response => {
         this.pieData = response.cases;
@@ -71,7 +94,21 @@ export default {
         this.debtRatio = (response.default_pie.debt_ratio * 10000) / 100;
       });
     },
-    onShowCardDetail(id) {}
+    onShowCardDetail(id) {
+      this.showLoading();
+      Services.getProductCard({case_id: id}).then(response => {
+        console.log(response);
+        if (response) {
+          this.quickViewData = response.case;
+          this.showDialog = true;
+        }
+      }).finally(() => {
+        this.closeLoading();
+      });
+    },
+    onQuickViewClose () {
+      this.showDialog = false;
+    }
   }
 };
 </script>

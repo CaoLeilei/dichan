@@ -42,9 +42,11 @@
       };
     },
     mounted () {
-      this._initDotChart()
+      console.log('this.data', this.data);
+      this._initDotChart();
       let options = this._buildDotChartOption(this.data);
       this._setDotChartOption(options);
+      this._addChartEvent();
       const {
         onWindowResize
       } = this;
@@ -75,6 +77,12 @@
           mapArr[index] = item;
         });
         data.forEach(item => {
+          let obj = {
+            projectName: item.name,
+            name: item.rating,
+            value: [],
+            id: item.id
+          };
           let rating = '';
           if (item.rating) {
             rating = item.rating;
@@ -83,16 +91,25 @@
           }
           if (rating && this.ratings.includes(rating)) {
             if (map[rating]) {
-              _data.push([map[rating], item.rate_max]);
+              obj.value = [map[rating], item.rate_max];
+              _data.push(obj);
             } else {
-              _data.push([index, item.rate_max]);
+              obj.value = [index, item.rate_max];
+              _data.push(obj);
               map[rating] = index;
               mapArr[index] = rating;
               index++;
             }
             this.xArr.push(rating);
           }
+
+          // item.projectName = item.name;
+          // item.name = item.rating;
+          // item.value = item.rate_max;
+
+
         });
+        console.log('_data:', _data);
         return {
           color: ['#521945', '#d4af37', '#826212', '#262626', '#da2b39', '#da2b39', '#b82940'],
           grid: {
@@ -151,6 +168,15 @@
       _setDotChartOption (option) {
         if (this.dotChart) {
           this.dotChart.setOption(option);
+        }
+      },
+      _addChartEvent () {
+        const _this = this;
+        if (this.dotChart) {
+          this.dotChart.on('click', 'series', function (item) {
+            let data = item.data;
+            _this.$emit('show-detail', data.id);
+          });
         }
       },
       _resizeChartBox () {
