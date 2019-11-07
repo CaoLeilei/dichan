@@ -73,6 +73,7 @@
       // this._loadPieCharData();
     },
     mounted () {
+
       this._initPieHighCharts(this.data);
     },
     beforeDestroy () {
@@ -87,6 +88,7 @@
         let chartData = [];
         data.forEach(item => {
           let chartDataItem = {
+            id: item.id,
             name: item.name,
             y: item.rate_max,
             price: item.price
@@ -132,6 +134,9 @@
                     chart.setTitle({
                       text: ''
                     });
+                  },
+                  click: function (e) {
+                    _this.$emit('show-detai', this.id);
                   }
                 }
               },
