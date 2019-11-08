@@ -81,7 +81,10 @@
             projectName: item.name,
             name: item.rating,
             value: [],
-            id: item.id
+            id: item.id,
+            itemStyle: {
+              color: item.color
+            }
           };
           let rating = '';
           if (item.rating) {

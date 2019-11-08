@@ -63,7 +63,16 @@ export default {
       debtRatio: 0,
       windowWidth: 0,
       showDialog: false,
-      quickViewData: null
+      quickViewData: null,
+      colorPlat: [
+        '#521945', '#d4af37', '#826212', '#262626', '#da2b39',
+        '#da2b39', '#b82940',
+        '#2ec7c9','#b6a2de','#5ab1ef','#ffb980','#d87a80',
+        '#8d98b3','#e5cf0d','#97b552','#95706d','#dc69aa',
+        '#07a2a4','#9a7fd1','#588dd5','#f5994e','#c05050',
+        '#59678c','#c9ab00','#7eb00a','#6f5553','#c14089'
+      ],
+      projectColorMap: new Map()
     };
   },
   mounted() {
@@ -86,10 +95,20 @@ export default {
     },
     _loadPieCharData() {
       Services.getAccountRightPieData().then(response => {
-        this.pieData = response.cases;
+        this.pieData = [];
+        this.dotData = [];
         this.projectCount = response.cases.length;
+        if (Array.isArray(response.cases)) {
+          response.cases.forEach((project, index) => {
+            let colorIndex = index % this.projectCount;
+            project.color = this.colorPlat[colorIndex];
+            this.pieData.push(project);
+            this.dotData.push(project);
+          });
+        }
         this.isLoadData = true;
         this.ratings = response.ratings;
+        this.pieData = response.cases;
         this.dotData = response.cases;
         this.debtRatio = (response.default_pie.debt_ratio * 10000) / 100;
       });

@@ -101,7 +101,8 @@
             id: item.id,
             name: item.name,
             y: item.rate_max,
-            price: item.price
+            price: item.price,
+            color: item.color
           };
           if (item.rating) {
             chartDataItem.rating = item.rating;
@@ -116,7 +117,7 @@
             backgroundColor: 'rgba(0,0,0,0)',
             spacing : [20, 0 ,0, 0]
           },
-          colors: ['#521945', '#d4af37', '#826212', '#262626', '#da2b39', '#da2b39', '#b82940'],
+          // colors: ['#521945', '#d4af37', '#826212', '#262626', '#da2b39', '#da2b39', '#b82940'],
           title: {
             enabled: false,
             align: 'center',
