@@ -110,7 +110,7 @@ export default {
         this.ratings = response.ratings;
         this.pieData = response.cases;
         this.dotData = response.cases;
-        this.debtRatio = (response.default_pie.debt_ratio * 10000) / 100;
+        this.debtRatio = response.default_pie.debt_ratio.toFixed(0);
       });
     },
     onShowCardDetail(id) {
