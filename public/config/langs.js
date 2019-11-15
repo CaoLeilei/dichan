@@ -47,7 +47,7 @@ window.langs = {
         emailContent: 'contact@primior.com',
         infoContent: '请访问官网<br/>Primior.com'
       },
-      copyright: 'Copyright 2019 Primior. All rights reserved.',
+      copyright: '© 2019 Primior. All Rights Reserved. eREIT, eFund and eDirect are trademarks of Primior. Proudly designed and coded in Los Angeles, CA. ',
       privacyPolicy: 'Privacy Policy'
     },
     views: {
@@ -287,7 +287,7 @@ window.langs = {
         emailContent: 'contact@primior.com',
         infoContent: 'Primior.com'
       },
-      copyright: 'Copyright 2019 Primior. All rights reserved.',
+      copyright: '© 2019 Primior. All Rights Reserved. eREIT, eFund and eDirect are trademarks of Primior. Proudly designed and coded in Los Angeles, CA. ',
       privacyPolicy: 'Privacy Policy'
     },
     views: {

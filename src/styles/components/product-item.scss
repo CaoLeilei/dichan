@@ -113,7 +113,7 @@
     white-space: nowrap;
     height: 60px;
     overflow: hidden;
-    @include utils-clearfix();
+    //@include utils-clearfix();
     &:before {
       content: " ";
       position: absolute;
@@ -128,7 +128,6 @@
     }
     @include when(show-all) {
       justify-content: flex-start;
-
     }
 
     .num-item {

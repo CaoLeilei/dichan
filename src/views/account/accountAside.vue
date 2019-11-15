@@ -110,13 +110,12 @@ export default {
         this.ratings = response.ratings;
         this.pieData = response.cases;
         this.dotData = response.cases;
-        this.debtRatio = response.default_pie.debt_ratio.toFixed(0);
+        this.debtRatio = parseInt(response.default_pie.debt_ratio.toFixed(0));
       });
     },
     onShowCardDetail(id) {
       this.showLoading();
       Services.getProductCard({case_id: id}).then(response => {
-        console.log(response);
         if (response) {
           this.quickViewData = response.case;
           this.showDialog = true;

@@ -21,5 +21,11 @@ export default {
   },
   [MUTATION_TYPE.UPDATE_PRIVACY_POLICY_URL] (state, url) {
     state.privacyPolicyUrl = url;
+  },
+  [MUTATION_TYPE.UPDATE_PRIMIOR_LINK_URL] (state, ulr) {
+    state.primiorLinkUrl = url;
+  },
+  [MUTATION_TYPE.UPDATE_TERMSOF_SERVICE] (state, url) {
+    state.termsofSCervice = url;
   }
 };

@@ -5,5 +5,7 @@ export default {
   showSetting: false,
   userProjectCount: 0,
   isShowCommonModule: false,
-  privacyPolicyUrl: 'javascript:;'
+  privacyPolicyUrl: 'javascript:;',
+  primiorLinkUrl: 'javascript:;',
+  termsofService: 'javascript:;'
 };

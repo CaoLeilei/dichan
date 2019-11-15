@@ -53,7 +53,7 @@
       };
     },
     mounted () {
-      this.words = this.data.de;
+      this.words = this.data.words;
     },
     watch: {
       visible (value) {

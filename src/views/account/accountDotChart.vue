@@ -5,6 +5,7 @@
       {{$t('views.account.sidebar.activeProjects')}}
     </div>
     <div class="chart-body dot-chart-body">
+      <div class="dot-chart-title">项目汇报</div>
       <div ref="dotChart" class="chart-box"></div>
     </div>
     <div class="dot-chart-footer">
@@ -42,7 +43,6 @@
       };
     },
     mounted () {
-      console.log('this.data', this.data);
       this._initDotChart();
       let options = this._buildDotChartOption(this.data);
       this._setDotChartOption(options);
@@ -113,11 +113,27 @@
 
         });
         console.log('_data:', _data);
+        let maxY = Number.MIN_VALUE;
+        let minY = Number.MAX_VALUE;
+        _data.forEach(item => {
+          maxY = Math.max(item.value[1], maxY);
+          minY = Math.min(item.value[1], minY);
+        });
+        if(maxY + 0.02 > 1) {
+          maxY = 1;
+        } else {
+          maxY = maxY + 0.02;
+        }
+        if (minY - 0.02 < 0) {
+          minY = 0;
+        } else {
+          minY = minY - 0.02;
+        }
         return {
           color: ['#521945', '#d4af37', '#826212', '#262626', '#da2b39', '#da2b39', '#b82940'],
           grid: {
             top: 10,
-            left: 40,
+            left: 65,
             bottom: 25
           },
           xAxis: {
@@ -143,6 +159,8 @@
             }
           },
           yAxis: {
+            max: maxY,
+            min: minY,
             axisLine: {
               show: false
             },
@@ -189,6 +207,9 @@
       },
       onWindowResize () {
         this._resizeChartBox();
+      },
+      onPrimiorRatingClick () {
+        // window.open();
       }
     }
   };

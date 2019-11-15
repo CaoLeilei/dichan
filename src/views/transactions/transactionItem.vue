@@ -23,7 +23,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="item in caseList" :key="item.id">
+      <tr v-for="(item, index) in caseList" :key="index">
         <td class="text-left">{{item.name}}</td>
         <td class="text-center font-black">{{item.price_unit}}</td>
         <td class="text-center font-black">{{item.unit_count}}</td>

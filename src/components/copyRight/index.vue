@@ -2,7 +2,7 @@
   <div class="dc-copyright">
     <div class="dc-copyright__inner">
       {{$t('components.copyright')}}
-      <a :href="privacyPolicyUrl" target="_blank">{{$t('components.privacyPolicy')}}</a>
+      <!-- <a :href="privacyPolicyUrl" target="_blank"></a> -->
     </div>
   </div>
 </template>

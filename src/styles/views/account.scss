@@ -234,9 +234,6 @@
       }
     }
     .dc-product-item__num-box {
-      &:before {
-        display: none;
-      }
       .num-item {
         overflow: hidden;
       }
@@ -355,6 +352,15 @@
         background: $--color-heading;
       }
     }
+    .dot-chart-title {
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      font-size: 14px;
+      transform: rotate(-90deg) translateY(-50%);
+      z-index: 5;
+      color: $--color-gray-3;
+    }
     .dot-chart-header {
       text-align: center;
       font-size: 14px;
@@ -367,11 +373,16 @@
       }
     }
     .dot-chart-footer {
+      margin-top: 8px;
       width: 100%;
       text-align: center;
       font-size: 12px;
       line-height: 24px;
       color: $--color-gray-3;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

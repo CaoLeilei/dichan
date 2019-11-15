@@ -1,7 +1,7 @@
 <template>
   <div class="dc-transactions">
-    <div class="row">
-      <div class="col-12 col-lg-9">
+    <el-container>
+      <el-main class="dc-transactions__main">
         <div class="dc-transactions__module">
           <h3 class="dc-transactions__module-title">
             <span>{{$t('views.transactions.title')}}</span>
@@ -19,14 +19,18 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </el-main>
+      <el-aside width="350px" class="dc-portfolio__aside" v-if="asideVisible">
+        <dc-account-aside class="dc-portfolio__aside" :account-info="accountInfo"></dc-account-aside>
+      </el-aside>
+    </el-container>
   </div>
 </template>
 
 <script>
   import loading from '../../common/mixins/loading';
   import DcTransactionItem from './transactionItem';
+  import DcAccountAside from '../account/accountAside';
   import Services from '../../services';
 
   const DIVIDEND_REINVEST = {
@@ -40,23 +44,65 @@
       loading
     ],
     components: {
-      DcTransactionItem
+      DcTransactionItem,
+      DcAccountAside
     },
     data () {
       return {
         DIVIDEND_REINVEST,
         transactionOrderList: [],
-        isDividend: false
+        isDividend: false,
+        principalEarns: 0,
+        windowWidth: 0
       };
     },
     mounted () {
+      this._computeWindowWidth();
       this.showLoading();
       this._loadIsDividend();
+      this._loadTotalData();
       this._loadTransactionList().finally(() => {
         this.closeLoading();
       });
+
+      const {
+        onWindowResize
+      } = this;
+      window.addEventListener('resize', onWindowResize);
+    },
+    beforeDestroy () {
+      const {
+        onWindowResize
+      } = this;
+      window.removeEventListener('resize', onWindowResize);
+    },
+    computed: {
+      accountInfo () {
+        if (this.principalEarns) {
+          let principalEarnsStr = this.principalEarns.toFixed(1);
+          let tempArr = principalEarnsStr.split('.');
+          return `<span>$</span>${tempArr[0]}<span>.${tempArr[1]}</span>`;
+        }
+        return '<span>$</span>0<span>.0</span>';
+      },
+      asideVisible () {
+        return this.windowWidth > 992;
+      }
     },
     methods: {
+      _computeWindowWidth () {
+        this.windowWidth = window.innerWidth;
+      },
+      _loadTotalData() {
+        return new Promise((resolve, reject) => {
+          Services.getEarnsTotal().then(response => {
+            if (response) {
+              this.principalEarns = response.principal_earns;
+            }
+            resolve();
+          }, reject);
+        });
+      },
       _loadIsDividend () {
         return new Promise((resolve, reject) => {
           Services.getDividend().then(response => {
@@ -91,6 +137,9 @@
       // 赎回成功之后进行刷新内容
       onRedeemSuccess () {
         this._loadTransactionList();
+      },
+      onWindowResize () {
+        this._computeWindowWidth();
       }
     },
   };

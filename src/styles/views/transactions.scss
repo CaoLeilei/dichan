@@ -1,6 +1,16 @@
 @include b(transactions) {
   @include container();
 
+  @include e(main) {
+    padding: 0;
+    overflow: hidden;
+  }
+  @include e(aside) {
+    padding: 30px 0 0;
+    margin-left: 20px;
+    overflow: hidden;
+  }
+
   @include e(module) {
     position: relative;
     padding-top: 30px;

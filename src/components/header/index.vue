@@ -146,7 +146,6 @@
         })
       },
       onLogoClick () {
-        debugger;
         if (this.userIsLogin) {
           if (this.$route.name !== '/account') {
             if (this.userProjectCount) {
