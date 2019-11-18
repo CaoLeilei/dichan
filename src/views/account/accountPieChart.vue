@@ -73,14 +73,7 @@
       // this._loadPieCharData();
     },
     mounted () {
-
       this._initPieHighCharts(this.data);
-    },
-    beforeDestroy () {
-      const {
-        onWindowResize
-      } = this;
-      window.removeEventListener('resize', onWindowResize);
     },
     computed: {
       displayProjectPrice () {
@@ -97,6 +90,7 @@
         const _this = this;
         let chartData = [];
         data.forEach(item => {
+          console.log(item);
           let chartDataItem = {
             id: item.id,
             name: item.name,
@@ -109,6 +103,7 @@
           } else if (item.desc) {
             chartDataItem.rating = item.desc;
           }
+          console.log('chartDataItem:', chartDataItem);
           chartData.push(chartDataItem);
         });
 
@@ -122,7 +117,7 @@
             enabled: false,
             align: 'center',
             verticalAlign: 'middle',
-            text: ''
+            text: null
           },
           tooltip: {
             enabled: false
@@ -146,7 +141,7 @@
                       text: ''
                     });
                   },
-                  click: function (e) {
+                  click: function () {
                     _this.$emit('show-detail', this.id);
                   }
                 }
@@ -163,20 +158,6 @@
             enabled: false
           }
         });
-      },
-      _initChartBox () {
-        const $pieChart = this.$refs['pieChart'];
-        if ($pieChart) {
-          this.pieChart = echarts.init($pieChart);
-        }
-      },
-      _resizeChartBox () {
-        // if (this.pieChart) {
-        //   this.pieChart.resize();
-        // }
-      },
-      onWindowResize () {
-        this._resizeChartBox();
       }
     }
   };

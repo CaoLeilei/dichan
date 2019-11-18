@@ -406,7 +406,8 @@ window.langs = {
           equity: 'Equity',
           activeProjects: 'active projects',
           primiorRating: 'Primior rating',
-          yourPortfplio: 'Your portfplio'
+          yourPortfplio: 'Your portfplio',
+          projectedReturn: 'Projected Return'
         }
       },
       portfolio: {

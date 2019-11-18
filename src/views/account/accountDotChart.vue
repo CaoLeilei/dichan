@@ -5,8 +5,8 @@
       {{$t('views.account.sidebar.activeProjects')}}
     </div>
     <div class="chart-body dot-chart-body">
-      <div class="dot-chart-title">项目汇报</div>
-      <div ref="dotChart" class="chart-box"></div>
+      <div ref="dotChart" class="chart-box" :id="dotChartId">
+      </div>
     </div>
     <div class="dot-chart-footer">
       <a :href="primiorRatingPdf">{{$t('views.account.sidebar.primiorRating')}}</a>
@@ -16,7 +16,8 @@
 
 <script>
   import { mapGetters } from 'vuex';
-  const echarts = window.echarts;
+  import Highcharts from 'highcharts';
+
   export default {
     name: 'accountDotChart',
     props: {
@@ -39,6 +40,7 @@
     },
     data() {
       return {
+        dotChartId: 'dotChart',
         dotChart: null,
         xArr: []
       };
@@ -49,173 +51,120 @@
       ])
     },
     mounted () {
-      this._initDotChart();
-      let options = this._buildDotChartOption(this.data);
-      this._setDotChartOption(options);
-      this._addChartEvent();
-      const {
-        onWindowResize
-      } = this;
-      window.addEventListener('resize', onWindowResize);
-    },
-    beforeDestroy () {
-      const {
-        onWindowResize
-      } = this;
-      window.removeEventListener('resize', onWindowResize);
+      // this._initDotChart();
+      // let options = this._buildDotChartOption(this.data);
+      // this._setDotChartOption(options);
+      // this._addChartEvent();
+      // const {
+      //   onWindowResize
+      // } = this;
+      // window.addEventListener('resize', onWindowResize);
+      this._initHighCharts();
     },
     methods: {
-      _initDotChart () {
-        const $dotChart = this.$refs['dotChart'];
-        if ($dotChart) {
-          this.dotChart = echarts.init($dotChart);
-        }
-      },
-      _loadDotChartData () {},
-      _buildDotChartOption (data) {
+      _initHighCharts () {
+        const _this = this;
         let _data = [];
         let map = {};
         let mapArr = {};
         let index = 1;
         let count = this.ratings.length;
+
         this.ratings.forEach((item, index) => {
           map[item] = index;
           mapArr[index] = item;
         });
-        data.forEach(item => {
-          let obj = {
-            projectName: item.name,
-            name: item.rating,
-            value: [],
-            id: item.id,
-            itemStyle: {
-              color: item.color
-            }
-          };
+
+        this.data.forEach(item => {
           let rating = '';
           if (item.rating) {
             rating = item.rating;
           } else if (item.desc) {
             rating = item.desc;
           }
-          if (rating && this.ratings.includes(rating)) {
-            if (map[rating]) {
-              obj.value = [map[rating], item.rate_max];
-              _data.push(obj);
-            } else {
-              obj.value = [index, item.rate_max];
-              _data.push(obj);
-              map[rating] = index;
-              mapArr[index] = rating;
-              index++;
-            }
-            this.xArr.push(rating);
-          }
 
-          // item.projectName = item.name;
-          // item.name = item.rating;
-          // item.value = item.rate_max;
-
-
+          let obj = {
+            id: item.id,
+            name: item.name,
+            x: map[rating],
+            y: item.rate_max,
+            color: item.color,
+            rating: item.rating
+          };
+          _data.push(obj);
         });
-        // console.log('_data:', _data);
-        let maxY = Number.MIN_VALUE;
-        let minY = Number.MAX_VALUE;
-        _data.forEach(item => {
-          maxY = Math.max(item.value[1], maxY);
-          minY = Math.min(item.value[1], minY);
-        });
-        if(maxY + 0.02 > 1) {
-          maxY = 1;
-        } else {
-          maxY = maxY + 0.02;
-        }
-        if (minY - 0.02 < 0) {
-          minY = 0;
-        } else {
-          minY = minY - 0.02;
-        }
-        return {
-          color: ['#521945', '#d4af37', '#826212', '#262626', '#da2b39', '#da2b39', '#b82940'],
-          grid: {
-            top: 10,
-            left: 65,
-            bottom: 25
+        Highcharts.chart(this.dotChartId, {
+          chart: {
+            type: 'scatter',
+            zoomType: 'xy',
+            backgroundColor: 'rgba(0,0,0,0)',
+          },
+          title: {
+            text: ''
           },
           xAxis: {
-            min: 0,
-            max: count,
-            splitNumber: count / 2,
-            axisLine: {
-              lineStyle: {
-                color: '#dddddd'
-              }
+            title: {
+              enabled: false,
             },
-            axisTick: {
-              show: false
-            },
-            axisLabel: {
-              color: '#d4af37',
-              formatter: function (value) {
-                return mapArr[value] ? mapArr[value] : '';
-              }
-            },
-            splitLine: {
-              show: false
-            }
+            categories: mapArr,
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true
           },
           yAxis: {
-            max: maxY,
-            min: minY,
-            axisLine: {
-              show: false
+            title: {
+              text: _this.$t('views.account.sidebar.projectedReturn')
             },
-            axisTick: {
-              show: false
-            },
-            axisLabel: {
-              color: '#a8a8a8',
-              formatter: function (data) {
-                return (data * 100).toFixed(0) + '%';
+            tickAmount: 5,
+            labels: {
+              formatter: function() {
+                return Math.round(this.value * 100) + '%';
               }
-            },
-            splitLine: {
-              lineStyle: {
-                color: '#dfdfdf'
+            }
+          },
+          legend: {
+            enabled: false
+          },
+          plotOptions: {
+            scatter: {
+              point: {
+                events: {
+                  click: function () {
+                    _this.$emit('show-detail', this.id);
+                  }
+                }
+              },
+              marker: {
+                radius: 5,
+                states: {
+                  hover: {
+                    enabled: true,
+                    lineColor: 'rgb(100,100,100)'
+                  }
+                }
+              },
+              states: {
+                hover: {
+                  marker: {
+                    enabled: false
+                  }
+                }
+              },
+              tooltip: {
+                pointFormat: '<b>{point.name}</b> <br /><span style="color: #999">{point.rating}</span>',
+                headerFormat: '',
+                // pointFormat: ''
               }
             }
           },
           series: [{
-            symbolSize: 10,
-            data: _data,
-            type: 'scatter'
-          }]
-        };
-      },
-      _setDotChartOption (option) {
-        if (this.dotChart) {
-          this.dotChart.setOption(option);
-        }
-      },
-      _addChartEvent () {
-        const _this = this;
-        if (this.dotChart) {
-          this.dotChart.on('click', 'series', function (item) {
-            let data = item.data;
-            _this.$emit('show-detail', data.id);
-          });
-        }
-      },
-      _resizeChartBox () {
-        if (this.dotChart) {
-          this.dotChart.resize();
-        }
-      },
-      onWindowResize () {
-        this._resizeChartBox();
-      },
-      onPrimiorRatingClick () {
-        // window.open();
+            data: _data
+          }],
+          credits: {
+            enabled: false
+          }
+        })
+
       }
     }
   };
