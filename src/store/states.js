@@ -7,5 +7,6 @@ export default {
   isShowCommonModule: false,
   privacyPolicyUrl: 'javascript:;',
   primiorLinkUrl: 'javascript:;',
-  termsofService: 'javascript:;'
+  termsofService: 'javascript:;',
+  primiorRatingPdf: 'javascript:;'
 };

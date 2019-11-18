@@ -24,5 +24,14 @@ export default {
   },
   updatePrivacyPolicyUrl ({ commit }, url) {
     commit(MUTATION_TYPE.UPDATE_PRIVACY_POLICY_URL, url);
+  },
+  updatePrimiorLinkUrl ({ commit }, url) {
+    commit(MUTATION_TYPE.UPDATE_PRIMIOR_LINK_URL, url);
+  },
+  updateTermsofService({ commit }, url) {
+    commit(MUTATION_TYPE.UPDATE_TERMSOF_SERVICE, url);
+  },
+  updatePrimiorRatingPdf ({ commit }, url) {
+    commit(MUTATION_TYPE.UPDATE_PRIMIOR_RATING_PDF, url);
   }
 }

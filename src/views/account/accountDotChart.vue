@@ -9,12 +9,13 @@
       <div ref="dotChart" class="chart-box"></div>
     </div>
     <div class="dot-chart-footer">
-      <span>{{$t('views.account.sidebar.primiorRating')}}</span>
+      <a :href="primiorRatingPdf">{{$t('views.account.sidebar.primiorRating')}}</a>
     </div>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
   const echarts = window.echarts;
   export default {
     name: 'accountDotChart',
@@ -41,6 +42,11 @@
         dotChart: null,
         xArr: []
       };
+    },
+    computed: {
+      ...mapGetters([
+        'primiorRatingPdf'
+      ])
     },
     mounted () {
       this._initDotChart();
@@ -112,7 +118,7 @@
 
 
         });
-        console.log('_data:', _data);
+        // console.log('_data:', _data);
         let maxY = Number.MIN_VALUE;
         let minY = Number.MAX_VALUE;
         _data.forEach(item => {

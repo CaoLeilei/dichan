@@ -52,7 +52,6 @@
       _loadData () {
         // getEarnsHistory
         Services.getEarnsHistory().then(response => {
-          console.log('thisget e', response)
           let data = this._parseResponse(response.items);
 
           let option = this._buildOption(data.names, data.datas);

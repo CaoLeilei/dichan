@@ -53,7 +53,7 @@
       };
     },
     mounted () {
-      console.log(this);
+      // console.log(this);
       this.showLoading();
       this._loadInviteLink().finally(() => {
         this.closeLoading();

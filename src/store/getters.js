@@ -26,3 +26,15 @@ export const isShowCommonModule = function (state) {
 export const privacyPolicyUrl = function (state) {
   return state.privacyPolicyUrl;
 };
+
+export const primiorLinkUrl = function (state) {
+  return state.primiorLinkUrl;
+};
+
+export const termsofService = function (state) {
+  return state.termsofService;
+};
+
+export const primiorRatingPdf = function (state) {
+  return state.primiorRatingPdf;
+}

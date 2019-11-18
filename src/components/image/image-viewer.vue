@@ -140,7 +140,6 @@ export default {
   watch: {
     index: {
       handler: function(val) {
-        console.log(val);
         this.reset();
         this.onSwitch(val);
       }

@@ -81,10 +81,16 @@ function initApp () {
         'updateUserName',
         'updateLanguage',
         'updateUserProjectCount',
-        'updatePrivacyPolicyUrl'
+        'updatePrivacyPolicyUrl',
+        'updatePrimiorLinkUrl',
+        'updateTermsofService',
+        'updatePrimiorRatingPdf'
       ]),
       loadCommonConfig () {
         this.updatePrivacyPolicyUrl(window.common.privacyPolicyUrl);
+        this.updatePrimiorLinkUrl(window.common.primiorLinkUrl);
+        this.updateTermsofService(window.common.termsofService);
+        this.updatePrimiorRatingPdf(window.common.primiorRatingPdf);
       },
       setHtmlPageTitle () {
         let title = this.$t('common.headerTitle');

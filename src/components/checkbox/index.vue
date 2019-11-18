@@ -30,7 +30,6 @@
     },
     methods: {
       onCheckboxChange () {
-        console.log(this.checkedValue);
         this.$emit('change', this.checkedValue);
       }
     }

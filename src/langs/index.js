@@ -5,7 +5,7 @@ const zhCn = require.ensure([], require('./zh-cn'), 'zh-cn')
 
 // const zhCn = require('./zh-cn');
 
-console.log(zhCn);
+// console.log(zhCn);
 // console.log(zhCn());
 export default {
   en: enUs,
