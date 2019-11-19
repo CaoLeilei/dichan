@@ -1,12 +1,12 @@
 <template>
   <div class="dc-account__aside">
-    <el-row :gutter="48">
+    <el-row>
       <el-col :lg="24" :xs="12" v-if="isLoadData">
         <dc-account-pie-chart :data="pieData" :debt-ratio="debtRatio"
                               @show-detail="onShowCardDetail"
                               :account-info="accountInfo"></dc-account-pie-chart>
       </el-col>
-      <el-col :lg="24" :xs="12">
+      <el-col :lg="24" :xs="12" class="dot-chart-col">
         <dc-account-dot-chart
           v-if="isLoadData"
           :project-count="projectCount"
